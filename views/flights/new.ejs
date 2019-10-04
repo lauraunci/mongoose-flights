@@ -8,18 +8,42 @@
   <title>Mongoose Flights</title>
 </head>
   <body>
+
     <h2>Enter a New Flight</h2>
+
     <form action="/flights" method="POST">
+
 	    <label>Airline:
-	    <input type="text" name="airline">
-	    </label><br>
-	    <label>Flight No:
-	    <input type="text" name="flightNo">
-	    </label><br>
+	    <select name="airline">
+        <option value="American">American</option>
+        <option value="Southwest">Southwest</option>
+        <option value="United">United</option>
+      </select>
+
+      </label><br>
+      
+	    <label>Airport:
+        <select name="airport">
+          <option value="AUS">Austin</option>
+          <option value="DAL">Dallas</option>
+          <option value="LAX">Los Angeles</option>
+          <option value="SEA">Seattle</option>
+        </select>
+	    </label><br>        
+
+      <label>Flight No:
+      <input type="text" name="flightNo">
+      
+      </label><br>
+      
 	    <label>Departs:
-        <input type="datetime-local">
-	    </label><br>
-	    <input type="submit" value="Add Flight">
+        <input type="datetime-local" id="departing-time" 
+        name="departs">
+
+      </label><br>
+      
+      <input type="submit" value="Add Flight">
+      
     </form>
   </body>
 </html>
