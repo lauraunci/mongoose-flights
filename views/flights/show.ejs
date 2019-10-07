@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Mongoose Flights</title>
+</head>
+<body>
+
+<section id="show-page">
+        <div>Airline: </div>
+        <div><%= flight.airline %></div>
+        <div>Flight No: </div>
+        <div><%= flight.flightNo %></div>
+        <div>Departs: </div>
+        <div><%= flight.departs %></div>
+        <div>Airport: </div>
+        <div><%= flight.airport %></div>
+        
+      </section>
+      
+    
+      
+      <br><br>
+      
+      <h2>Destinations</h2>
+      
+      <% if (flight.destinations.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Arrival</th>
+              <th>Airport</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% flight.destinations.forEach(function(d) { %>
+              <tr>
+                <td><%= d.arrivals.toLocaleDateString(undefined, { dateStyle: 'long', timeStyle: 'short'}) %></td>
+                <td><%= d.airport_a %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+      <% } %>
+      
+      <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+        
+        <label>Arrival:</label>
+        <input type="datetime-local" id="arrival-time" name="arrivals">
+
+        <label>Airport:</label>
+            <select name="airport_a">
+                <option value="AUS">Austin</option>
+                <option value="DAL">Dallas</option>
+                <option value="LAX">Los Angeles</option>
+                <option value="SEA">Seattle</option>
+            </select>
+
+        <input type="submit" value="Add Destination">
+      </form>
+
+      <section>
+        <h2>Tickets</h2>
+
+        <% if (tickets.length) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>Seat</th>
+                <th>Price</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <% tickets.forEach(function(t) { %>
+                <tr>
+                  <td><%= t.seat %></td>
+                  <td><%= t.price %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        <% } else { %>
+        <% } %>
+
+        <a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
+      </section>
+
+    </body>
+    </html>

@@ -24,11 +24,11 @@
               <tr>
                   <td><%= f.airline %></td>
                   <td><%= f.flightNo %></td>
-                  <!-- <td><%= f.departs.toLocaleDateString('en', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'}) %></td> -->
                   <td><%= f.departs.toLocaleDateString(undefined, { dateStyle: 'long', timeStyle: 'short'}) %></td>
                   <td><%= f.airport %></td>
-                  <td><a href="/flights/<%= f._id %>"></a>DETAIL</td>             
-                </tr>
+                  
+                  <td><a href="/flights/<%= f._id %>">Detail</a></td>             
+              </tr>
           <% }); %>
       </tbody>
   </table>
