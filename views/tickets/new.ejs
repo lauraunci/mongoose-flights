@@ -8,9 +8,7 @@
   <title>Mongoose Flights</title>
 </head>
   <body>
-
-
-<form id="add-ticket-form" action="/flights/<%= flight_id %>/tickets" method="POST">
+  <form id="add-ticket-form" action="/flights/<%= flight_id %>/tickets" method="POST">
     <label>Seat:</label>
     <input name="seat" required pattern="[A-F][1-9]\d?">
     <label>Price:</label>

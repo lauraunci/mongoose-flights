@@ -9,19 +9,16 @@
 </head>
 <body>
 
-<section id="show-page">
+      <section id="show-page">
         <div>Airline: </div>
-        <div><%= flight.airline %></div>
+        <div><%= flight.airline %></div><br>
         <div>Flight No: </div>
-        <div><%= flight.flightNo %></div>
+        <div><%= flight.flightNo %></div><br>
         <div>Departs: </div>
-        <div><%= flight.departs %></div>
+        <div><%= flight.departs %></div><br>
         <div>Airport: </div>
         <div><%= flight.airport %></div>
-        
       </section>
-      
-    
       
       <br><br>
       
@@ -49,31 +46,27 @@
       <% } %>
       
       <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
-        
-        <label>Arrival:</label>
-        <input type="datetime-local" id="arrival-time" name="arrivals">
-
-        <label>Airport:</label>
+        <label>Arrival:
+          <input type="datetime-local" id="arrival-time" name="arrivals">
+        </label><br>
+        <label>Airport:
             <select name="airport_a">
                 <option value="AUS">Austin</option>
                 <option value="DAL">Dallas</option>
                 <option value="LAX">Los Angeles</option>
                 <option value="SEA">Seattle</option>
             </select>
-
+          </label><br> 
         <input type="submit" value="Add Destination">
       </form>
-
       <section>
         <h2>Tickets</h2>
-
         <% if (tickets.length) { %>
           <table>
             <thead>
               <tr>
                 <th>Seat</th>
                 <th>Price</th>
-
               </tr>
             </thead>
             <tbody>
@@ -87,9 +80,7 @@
           </table>
         <% } else { %>
         <% } %>
-
         <a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
       </section>
-
     </body>
     </html>
